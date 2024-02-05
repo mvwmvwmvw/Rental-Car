@@ -77,29 +77,29 @@
     <div class="formContainer">
         <h1>Car Rental Booking Form</h1>
         <form id="calcForm" method="post" action="http://localhost:3000">
-            <label for="pickup-location">Pickup Location:</label>
-            <input type="text" id="pickup-location" name="pickup" required>
+            <label for="pickupLocation">Pickup Location:</label>
+            <input type="text" id="pickupLocation" name="pickup" required>
     
-            <label for="dropoff-location">Dropoff Location:</label>
-            <input type="text" id="dropoff-location" name="dropoff" required>
+            <label for="dropoffLocation">Dropoff Location:</label>
+            <input type="text" id="dropoffLocation" name="dropoff" required>
 
-            <label for="pickup-date">Pickup Date:</label>
-            <input type="date" id="pickup-date" name="pickupdate" required>
+            <label for="pickupDate">Pickup Date:</label>
+            <input type="date" id="pickupDate" name="pickupDate" required>
     
             <label for="dropoff-date">Dropoff Date:</label>
-            <input type="date" id="dropoff-date" name="dropoffdate" required>
-
-            <label for="car-type">Car Type:</label>
-            <select id="car-type" name="type">
+            <input type="date" id="dropoffDate" name="dropoffDate" required>
+            <br>
+            <label for="carType">Car Type:</label>
+            <select id="carType" name="carType">
                 <option value="compact">Compact</option>
-                <option value="Electric">Electric</option>
+                <option value="electric">Electric</option>
                 <option value="cabrio">Cabrio</option>
                 <option value="racer">Racer</option>
             </select>
 
-            <div class="form-group">
-                <label for="age">Diver's age</label>
-                <input type="number" class="form-control" name="age" required/>
+            <div class="form-group"><br>
+                <label for="userAge">Diver's age</label>
+                <input type="number" class="form-control" name="userAge" required/>
             </div>
 
             <button type="submit" class="btn btn-primary">Search</button>
