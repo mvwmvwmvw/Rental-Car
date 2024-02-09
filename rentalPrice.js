@@ -8,7 +8,6 @@ function calculatePrice(pickupDate, dropoffDate, type, userAge) {
   }
 
   if (userAge <= 21 && type !== "Compact") {
-
       return "Drivers 21 y/o or less can only rent Compact vehicles";
   }
 
@@ -16,9 +15,7 @@ function calculatePrice(pickupDate, dropoffDate, type, userAge) {
 
   if (type === "Racer" && userAge <= 25 && season === "High") {
       rentalprice *= 1.5;
-  }
-
-  if (season === "High" ) {
+  } else if (season === "High" ) {
     rentalprice *= 1.15;
   }
 
@@ -58,4 +55,11 @@ function getSeason(pickupDate, dropoffDate) {
   }
 }
 
+function isLongRental(rentalDays) {
+  return rentalDays > 10;
+}
+
 exports.calculatePrice = calculatePrice;
+exports.isLongRental = isLongRental;
+exports.getSeason = getSeason;
+exports.getPickupDropoffDate = getPickupDropoffDate;
