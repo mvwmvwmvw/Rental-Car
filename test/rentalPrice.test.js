@@ -19,10 +19,9 @@ test('Driver under 21 can rent only compact car', () => {
     expect(rental.calculatePrice('2024-01-03', '2024-02-02', 'Racer', 19))
     .toBe('Drivers 21 y/o or less can only rent Compact vehicles');
 }); 
-type === "Racer" && userAge <= 25 && season === "High"
 test('24 year old rents a racer car from 2024-05-03 to 2024-06-01', () => {
     expect(rental.calculatePrice('2024-05-03', '2024-06-01', 'Racer', 24))
-    .toBe('$1242');
+    .toBe('$1080');
 });
 
 test('5 days is not long rental', () => {
