@@ -61,7 +61,7 @@ test('For Racers the price is increared by 50% if the driver is 25 years old or 
 })
 //
 test('Renting in Low season for more than 10 days price is decresed by 10%', () => {
-    expect(rental.calculatePrice('2024-10-03', '2024-10-13', 'Racer', 24))
+    expect(rental.calculatePrice('2024-10-03', '2024-10-14', 'Racer', 30))
     .toBe('');
 })
 //

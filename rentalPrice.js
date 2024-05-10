@@ -16,7 +16,9 @@ function calculatePrice(pickupDate, dropoffDate, carType, userAge) {
 
   if (carType === "Racer" && userAge <= 25 && season === "High") {
       rentalprice *= 1.5;
-  } else if (season === "High" ) {
+  } 
+  
+  if (season === "High" ) {
     rentalprice *= 1.15;
   }
 
