@@ -2,13 +2,14 @@
 function calculatePrice(pickupDate, dropoffDate, carType, userAge) {
   const pickupDropoffDate = getPickupDropoffDate(pickupDate, dropoffDate);
   const season = getSeason(pickupDate, dropoffDate);
-
+//Rental cars are categorized into 4 classes: Compact, Electric, Cabrio, Racer.s
+//The minimum rental price per day is equivalent to the age of the driver.
   if (userAge < 18) {
       return "Driver too young - cannot quote the price";
   }
 
   if (userAge <= 21 && carType !== "Compact") {
-      return "Drivers 21 y/o or less can only rent Compact vehicles";
+      return "Drivers 21 y/o or less can only rent Compact cars";
   }
 
   let rentalprice = userAge * pickupDropoffDate;
