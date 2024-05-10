@@ -5,11 +5,6 @@ test('Driver under 18 cannot rent a car', () => {
     .toBe('Driver too young - cannot quote the price');
 });
 
-test('Driver under 18 cannot rent a car', () => {
-    expect(rental.calculatePrice('2024-01-01', '2024-02-02', 'Compact', 15))
-    .toBe('Driver too young - cannot quote the price');
-});
-
 test('Driver under 21 can rent only compact car', () => {
     expect(rental.calculatePrice('2024-01-03', '2024-02-02', 'Compact', 19))
     .toBe('$530.1');
