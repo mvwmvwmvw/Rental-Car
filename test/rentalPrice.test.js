@@ -38,6 +38,15 @@ test('High or Low Season', () => {
     .toBe('High');
 });
 
+test('Renting in High season, price is increased by 15%', () => {
+    expect(rental.calculatePrice)
+})
+
+test('For Racers the price is increared by 50% if the driver is 25 years old or younger, except low season', () => {
+    expect(rental.calculatePrice('2024-05-03', '2024-06-01', 'Racer', 24))
+    .toBe('$1080');
+})
+
 test('How many days is the car rented', () => {
     expect(rental.getPickupDropoffDate('2024-01-01', '2024-02-02'))
     .toBe(33);

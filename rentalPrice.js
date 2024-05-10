@@ -1,5 +1,5 @@
 
-function calculatePrice(pickupDate, dropoffDate, type, userAge) {
+function calculatePrice(pickupDate, dropoffDate, carType, userAge) {
   const pickupDropoffDate = getPickupDropoffDate(pickupDate, dropoffDate);
   const season = getSeason(pickupDate, dropoffDate);
 
@@ -7,13 +7,13 @@ function calculatePrice(pickupDate, dropoffDate, type, userAge) {
       return "Driver too young - cannot quote the price";
   }
 
-  if (userAge <= 21 && type !== "Compact") {
+  if (userAge <= 21 && carType !== "Compact") {
       return "Drivers 21 y/o or less can only rent Compact vehicles";
   }
 
   let rentalprice = userAge * pickupDropoffDate;
 
-  if (type === "Racer" && userAge <= 25 && season === "High") {
+  if (carType === "Racer" && userAge <= 25 && season === "High") {
       rentalprice *= 1.5;
   } else if (season === "High" ) {
     rentalprice *= 1.15;
