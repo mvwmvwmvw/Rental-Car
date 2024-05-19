@@ -55,7 +55,7 @@ test('Renting in High season, price is increased by 15%', () => {
     .toBe('$1380');
 })
 //c
-test('For Racers the price is increared by 50% if the driver is 25 years old or younger, except low season', () => {
+test('For  Racers the price is increared by 50% if the driver is 25 years old or younger, except low season', () => {
     expect(rental.calculatePrice('2024-05-03', '2024-06-01', 'Racer', 24))
     .toBe('$1080');
 })
