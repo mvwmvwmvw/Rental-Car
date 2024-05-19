@@ -1,5 +1,5 @@
 
-function calculatePrice(pickupDate, dropoffDate, carType, userAge) {
+function calculatePrice(pickupDate, dropoffDate, carType, userAge, licenseHeldYear) {
   const pickupDropoffDate = getPickupDropoffDate(pickupDate, dropoffDate);
   const season = getSeason(pickupDate, dropoffDate);
   if (userAge < 18) {
@@ -10,7 +10,19 @@ function calculatePrice(pickupDate, dropoffDate, carType, userAge) {
       return "Drivers 21 y/o or less can only rent Compact cars";
   }
 
+  if (licenseHeldYear < 1){
+    return "Drivers license held for less than a year cannot rent a car"
+  }
+
+
+
   let rentalprice = userAge * pickupDropoffDate;
+
+
+  if (licenseHeldYear < 2) {
+    rentalprice *= 1.3;
+  }
+
 
   if (carType === "Racer" && userAge <= 25) {
     if (season === "High"){
@@ -25,6 +37,10 @@ function calculatePrice(pickupDate, dropoffDate, carType, userAge) {
     rentalprice *= 0.9;
   }
 
+
+  if (licenseHeldYear < 3 && season === "High") {
+    rentalprice += 15 * pickupDropoffDate;
+  }
 
 
   return '$' + rentalprice.toFixed(0);

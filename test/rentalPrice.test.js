@@ -82,6 +82,19 @@ test('Renting in Low season for more than 10 days price is decresed by 10%', () 
     .toBe("$324");
 })
 
+
+test('License less than a year', () => {
+    expect(rental.calculatePrice('2024-01-01', '2024-02-02', 'Compact', 25, 0.5))
+    .toBe("Drivers license held for less than a year cannot rent a car");
+});
+
+test('License less than two years', () => {
+    expect(rental.calculatePrice('2024-06-01', '2024-06-10', 'Compact', 25, 1.5))
+    .toBe("$475");
+});
+
+
+
 test('How many days is the car rented', () => {
     expect(rental.getPickupDropoffDate('2024-01-01', '2024-02-02'))
     .toBe(33);
