@@ -2,10 +2,8 @@
 function calculatePrice(pickupDate, dropoffDate, carType, userAge) {
   const pickupDropoffDate = getPickupDropoffDate(pickupDate, dropoffDate);
   const season = getSeason(pickupDate, dropoffDate);
-//Rental cars are categorized into 4 classes: Compact, Electric, Cabrio, Racer.s
-//The minimum rental price per day is equivalent to the age of the driver.
   if (userAge < 18) {
-      return "Driver too young - cannot quote the price";
+      return "Driver too young - cannot rent a car";
   }
 
   if (userAge <= 21 && carType !== "Compact") {
@@ -14,23 +12,27 @@ function calculatePrice(pickupDate, dropoffDate, carType, userAge) {
 
   let rentalprice = userAge * pickupDropoffDate;
 
-  if (carType === "Racer" && userAge <= 25 && season === "High") {
+  if (carType === "Racer" && userAge <= 25) {
+    if (season === "High"){
       rentalprice *= 1.5;
-  } 
-  
-  if (season === "High" ) {
+    }else{
+      rentalprice *= 1.0;
+    }
+} 
+  if (season === "High" && userAge >25 ) {
     rentalprice *= 1.15;
-  }
-
-  if (pickupDropoffDate > 10 && season === "Low" ) {
+  } else if (season === "Low" && pickupDropoffDate > 10   ) {
     rentalprice *= 0.9;
   }
-  return '$' + rentalprice;
+
+
+
+  return '$' + rentalprice.toFixed(0);
 }
 
 
 function getPickupDropoffDate(pickupDate, dropoffDate) {
-  const oneDay = 24 * 60 * 60 * 1000; // hours*minutes*seconds*milliseconds
+  const oneDay = 24 * 60 * 60 * 1000; 
   const firstDate = new Date(pickupDate);
   const secondDate = new Date(dropoffDate);
 
@@ -41,8 +43,8 @@ function getSeason(pickupDate, dropoffDate) {
   const pickup = new Date(pickupDate);
   const dropoff = new Date(dropoffDate);
 
-  const start = 4; 
-  const end = 10;
+  const start = 3; 
+  const end = 9;
 
   const pickupMonth = pickup.getMonth();
   const dropoffMonth = dropoff.getMonth();
